@@ -1,8 +1,6 @@
-flask
-opencv-python
-deepface
-statistics
-requests
-numpy
+Flask>=2.0.0
 gunicorn
-
+tensorflow>=2.9.0
+numpy>=1.21.0
+opencv-python
+scikit-learn
