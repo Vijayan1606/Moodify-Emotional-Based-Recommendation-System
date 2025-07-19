@@ -1,0 +1,104 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    #fde2e4,
+    #fad2e1,
+    #c5dedd,
+    #dbe7f0,
+    #e1ccec,
+    #f8e8ee,
+    #d6e2f0
+  );
+  font-family: Arial, sans-serif;
+}
+
+/* Header Section */
+
+
+h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c2f33; /* Dark Gray Text for Contrast */
+  margin-bottom: 20px;
+}
+
+/* Box Styling for the Books */
+.box {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Fixed 5 columns per row */
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Book Image Styling */
+.box img {
+  width: 180px;
+  height: 270px;
+  object-fit: cover;
+  border: 6px solid #fff;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.box img:hover {
+  transform: scale(1.1);
+  border: 6px solid #ffa07a; /* Pastel Orange Border on Hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .box {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .box {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns per row on tablets */
+  }
+
+  .box img {
+      width: 150px;
+      height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .box {
+      grid-template-columns: repeat(1, 1fr); /* 1 column per row on small screens */
+  }
+}
+
+
+@media (max-width: 480px) {
+  .box {
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+  }
+}
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
