@@ -1,0 +1,11 @@
+{
+  "name": "emotion-recommendation-system",
+  "version": "1.0.0",
+  "description": "Emotion-based recommendation system with Flask backend",
+  "scripts": {
+    "build": "echo 'Building static assets...' && mkdir -p dist && cp -r frontend/static dist/ && cp -r frontend/templates dist/",
+    "start": "python backend/notebooks/app.py"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

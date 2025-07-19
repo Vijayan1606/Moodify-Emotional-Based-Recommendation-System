@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Based Recommendation System</title>
+    <link rel="shortcut icon" href="./static/img2.png" type="image/x-icon">
+    <link rel="stylesheet" href="./static/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <div class="logo">
+                <img src="static/img2.png" alt="">
+                <span>Moodify</span>
+            </div>
+        </nav>
+
+        <div class="content">
+            <h1 class="slide-left">Let Your Emotions Guide</h1>
+            <h1 class="slide-left" style="color: #87CEEB;">You....!</h1>
+            <p class="slide-left">Discover personalized content recommendations based on your current mood and emotional state.</p>
+            <div class="links slide-left">
+                <a href="#demo" class="btn">View Demo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-section" id="demo">
+        <div class="content">
+            <h2>Experience Emotion-Based Recommendations</h2>
+            <p>This is a demonstration of our emotion detection and recommendation system.</p>
+            <div class="demo-buttons">
+                <a href="./templates/buttons.html" class="btn">Try Demo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Icon & Notification -->
+    <div class="chat-icon-container">
+        <div class="chat-notification" id="chatNotification">Hey! 😊 How are you feeling today?</div>
+        <img src="./static/chat.jpg" alt="Chatbot" class="chat-icon" id="chatIcon" onclick="toggleChatbox()">
+    </div>
+
+    <!-- Chatbox -->
+    <div class="chatbox-container" id="chatbox">
+        <div class="chatbox-header">
+            Moodify Chatbot
+            <span onclick="toggleChatbox()">✖</span>
+        </div>
+        <div class="messages" id="messages">
+            <div class="message bot">Hey! 😊 How are you feeling today? I'm here to listen. 💙</div>
+        </div>
+        <div class="input-container">
+            <input type="text" id="userInput" placeholder="Share your feelings...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChatbox() {
+            let chatbox = document.getElementById("chatbox");
+            let notification = document.getElementById("chatNotification");
+
+            chatbox.classList.toggle("show");
+
+            if (chatbox.classList.contains("show")) {
+                notification.style.display = "none";
+            }
+        }
+
+        setTimeout(() => {
+            let notification = document.getElementById("chatNotification");
+            notification.style.opacity = "0";
+            setTimeout(() => (notification.style.display = "none"), 500);
+        }, 5000);
+
+        function sendMessage() {
+            let userInput = document.getElementById("userInput").value;
+            if (userInput.trim() === "") return;
+
+            let messagesDiv = document.getElementById("messages");
+
+            let userMessageDiv = document.createElement("div");
+            userMessageDiv.className = "message user";
+            userMessageDiv.innerText = userInput;
+            messagesDiv.appendChild(userMessageDiv);
+
+            document.getElementById("userInput").value = "";
+
+            let botMessageDiv = document.createElement("div");
+            botMessageDiv.className = "message bot";
+            botMessageDiv.innerText = "Thank you for sharing! This is a demo version. The full application includes AI-powered responses.";
+            messagesDiv.appendChild(botMessageDiv);
+
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+    </script>
+</body>
+</html>
