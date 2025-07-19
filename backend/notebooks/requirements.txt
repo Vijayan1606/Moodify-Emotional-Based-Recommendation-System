@@ -4,3 +4,5 @@ deepface
 statistics
 requests
 numpy
+gunicorn
+
