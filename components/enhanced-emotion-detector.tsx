@@ -460,40 +460,6 @@ export function EnhancedEmotionDetector({
                     </motion.div>
                   )}
                 </AnimatePresence>
-
-                {/* Face++ Configuration Guide */}
-                <AnimatePresence>
-                  {forceRealDetection && !realApiConfigured && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4"
-                    >
-                      <div className="text-orange-300 text-sm">
-                        <h4 className="font-semibold mb-2 flex items-center gap-2">
-                          <Settings className="w-4 h-4" />
-                          Face++ API Configuration Required
-                        </h4>
-                        <div className="space-y-2 text-xs">
-                          <p>To use real emotion detection, configure your Face++ API credentials:</p>
-                          <ol className="list-decimal list-inside space-y-1 ml-4">
-                            <li>Get API keys from <a href="https://www.faceplusplus.com/" target="_blank" className="text-orange-200 underline">Face++ Console</a></li>
-                            <li>Set environment variables:</li>
-                            <div className="bg-black/30 rounded p-2 font-mono text-xs mt-1">
-                              FACEPLUS_API_KEY=your_api_key<br/>
-                              FACEPLUS_API_SECRET=your_api_secret
-                            </div>
-                            <li>Restart your application</li>
-                          </ol>
-                          <p className="text-orange-200">
-                            💡 Until configured, demo mode provides realistic simulation.
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </div>
 
               {/* Results Section */}
